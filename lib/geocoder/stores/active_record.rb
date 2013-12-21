@@ -130,7 +130,7 @@ module Geocoder::Store
 
         if using_sqlite?
           conditions = bounding_box_conditions
-        else
+        elsif radius != nil
           conditions = [bounding_box_conditions + " AND #{distance} <= ?", radius]
         end
         {
